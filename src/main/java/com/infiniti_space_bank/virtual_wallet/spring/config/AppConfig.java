@@ -1,6 +1,5 @@
 package com.infiniti_space_bank.virtual_wallet.spring.config;
 
-
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 

@@ -19,7 +19,6 @@ import com.infiniti_space_bank.virtual_wallet.utility.TransactionType;
 @Table(name = "account")
 public class Account {
 
-
 	@Id
 	@Column(name = "id")
 	private int accountId;
@@ -100,7 +99,7 @@ public class Account {
 				return transactionList;
 			} else {
 				List<Transaction> NTransaction = new ArrayList<Transaction>();
-				for (int i = transactionList.size() - 1; i >= 0; i--) {
+				for (int i = N - 1; i >= 0; i--) {
 					NTransaction.add(transactionList.get(i));
 				}
 				return NTransaction;

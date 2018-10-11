@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.infiniti_space_bank.virtual_wallet.exception.CustomerIsNotAccountOwenr;
 import com.infiniti_space_bank.virtual_wallet.exception.InsufficientBalanceException;
+import com.infiniti_space_bank.virtual_wallet.exception.NoSuchCustomer;
 import com.infiniti_space_bank.virtual_wallet.spring.entity.Account;
 import com.infiniti_space_bank.virtual_wallet.spring.entity.Customer;
 import com.infiniti_space_bank.virtual_wallet.spring.entity.Transaction;
@@ -107,4 +108,13 @@ public interface VirtualWallet {
 	 */
 	public void TrackAnotherAccount(Wallet customerWallet, Account account) throws CustomerIsNotAccountOwenr;
 
+	/**
+	 * @param CustomerId
+	 *            the customer id in the database
+	 * @return the customer associated with id in the database
+	 * @throws NoSuchCustomer
+	 *             if no customer associated with this id the functions throws
+	 *             NoSuchCustomer exception
+	 */
+	public Customer getCustomer(int CustomerId) throws NoSuchCustomer;
 }
