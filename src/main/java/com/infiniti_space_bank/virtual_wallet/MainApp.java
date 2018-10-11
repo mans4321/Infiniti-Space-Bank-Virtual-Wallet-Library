@@ -22,8 +22,8 @@ public class MainApp {
 
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 		WalletService walletService = (WalletService) context.getBean("walletService");
-		VirtualWallet virtualWallet = new VirtualWalletImpl();
-		Customer customer = walletService.getCustomer(1);
+		VirtualWallet virtualWallet = new VirtualWalletImpl(walletService);
+		Customer customer = virtualWallet.getCustomer(1);
 		Wallet wallet = new Wallet(customer, walletService);
 
 		System.out.println("");
@@ -44,7 +44,7 @@ public class MainApp {
 			case 1:
 				message = "Creating a wallet for ";
 				System.out.println(message);
-				wallet = new Wallet(customer, walletService);
+				wallet = virtualWallet.createWallet(customer);
 				message = "a wallet for user with id= 1 has been created ";
 				System.out.println(message);
 				showMenu();
@@ -101,8 +101,8 @@ public class MainApp {
 				System.out.println(message);
 				int id = (int) userInput(keyboard);
 				try {
-					Customer newCustomer = walletService.getCustomer(id);
-					wallet = new Wallet(newCustomer, walletService);
+					Customer newCustomer = virtualWallet.getCustomer(id);
+					wallet = virtualWallet.createWallet(newCustomer);
 				} catch (NoSuchCustomer e) {
 					System.out.println(e.getMessage());
 				}

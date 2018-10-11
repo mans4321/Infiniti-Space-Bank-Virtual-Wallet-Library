@@ -2,7 +2,7 @@ package com.infiniti_space_bank.virtual_wallet.api;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.infiniti_space_bank.virtual_wallet.exception.CustomerIsNotAccountOwenr;
 import com.infiniti_space_bank.virtual_wallet.exception.InsufficientBalanceException;
@@ -13,9 +13,13 @@ import com.infiniti_space_bank.virtual_wallet.spring.entity.Transaction;
 import com.infiniti_space_bank.virtual_wallet.spring.service.WalletService;
 import com.infiniti_space_bank.virtual_wallet.utility.Wallet;
 
+@Component
 public class VirtualWalletImpl implements VirtualWallet {
-	@Autowired
 	private WalletService walletService;
+
+	public VirtualWalletImpl(WalletService walletService) {
+		this.walletService = walletService;
+	}
 
 	public Wallet createWallet(Customer customer) {
 		Wallet wallet = new Wallet(customer, walletService);
@@ -46,5 +50,8 @@ public class VirtualWalletImpl implements VirtualWallet {
 		customerWallet.setTrackedAccount(account);
 	}
 
+	public Customer getCustomer(int id) throws NoSuchCustomer {
+		return walletService.getCustomer(id);
+	}
 
 }

@@ -108,4 +108,16 @@ public interface VirtualWallet {
 	 */
 	public void TrackAnotherAccount(Wallet customerWallet, Account account) throws CustomerIsNotAccountOwenr;
 
+	/**
+	 * get the customer associated with specific id in the database
+	 * 
+	 * @param id
+	 *            id associated with the customer in the database
+	 * @return customer associated with specific id in the database
+	 * @throws NoSuchCustomer
+	 *             throws NoSuchCustomer if no id associated with the customer
+	 *             in the database
+	 */
+	public Customer getCustomer(int id) throws NoSuchCustomer;
+
 }
