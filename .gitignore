@@ -2,9 +2,11 @@
 # Created by https://www.gitignore.io/api/java,maven,java-web
 
 ### Java ###
+.project
+.classpath
+
 # Compiled class file
 *.class
-
 # Log file
 *.log
 
