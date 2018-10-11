@@ -46,8 +46,5 @@ public class VirtualWalletImpl implements VirtualWallet {
 		customerWallet.setTrackedAccount(account);
 	}
 
-	public Customer getCustomer(int CustomerId) throws NoSuchCustomer {
-		return walletService.getCustomer(CustomerId);
-	}
 
 }
