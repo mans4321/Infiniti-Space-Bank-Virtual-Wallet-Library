@@ -3,7 +3,7 @@ To run the Infiniti Space Bank Virtual Wallet Library:
 1-Open your IDE
 
 2- import the project as exsiting maven project
-
+sssss
 3- setup your Mysql DataBase
 
 	A. locate the database folder in the project
